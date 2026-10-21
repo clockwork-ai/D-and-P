@@ -314,6 +314,15 @@ a.big:hover{opacity:.85}
 .stage figcaption small{font-size:12px;color:#CCDBF1;letter-spacing:.04em}
 @media (max-width:900px){.craft__grid{grid-template-columns:1fr;gap:var(--sc-8)}.craft__head{position:static}}
 
+/* ---------- photo swipe-in: each photo wipes in from the side as it enters view ---------- */
+.swipe{clip-path:inset(0 100% 0 0 round 16px);transition:clip-path 1s var(--sc-ease-out)}
+.swipe.from-right{clip-path:inset(0 0 0 100% round 16px)}
+.swipe img{transform:scale(1.12);transition:transform 1.4s var(--sc-ease-out)}
+.swipe.in{clip-path:inset(0 0 0 0 round 16px)}
+.swipe.in img{transform:scale(1)}
+.work .swipe,.work .swipe.from-right{border-radius:14px}
+@media (prefers-reduced-motion:reduce){.swipe,.swipe.from-right{clip-path:none;transition:none}.swipe img{transform:none;transition:none}}
+
 /* ---------- white divider between the blue sections ---------- */
 .divide{position:relative;z-index:3;height:10px;background:#fff;display:grid;place-items:center;box-shadow:0 -1px 0 rgba(255,255,255,.4),0 10px 30px -18px rgba(0,0,0,.6)}
 .divide::after{content:"";width:72px;height:10px;background:#DE213A}
@@ -585,23 +594,23 @@ a.big:hover{opacity:.85}
     </div>
     <div class="stages">
       <figure class="stage">
-        <div class="ph" data-sc-reveal="up" data-sc-reveal-at="0.02 0.16"><img src="brand_assets/fb-scaffold-semi.jpg" alt="Scaffold up around a semi-detached house" loading="lazy" width="1260" height="1680"></div>
+        <div class="ph swipe"><img src="brand_assets/fb-scaffold-semi.jpg" alt="Scaffold up around a semi-detached house" loading="lazy" width="1260" height="1680"></div>
         <figcaption><b>Scaffold up</b><span>Scaffold and skips organised by us, and building control where it's needed.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
-        <div class="ph" data-sc-reveal="left" data-sc-reveal-at="0.18 0.32"><img src="brand_assets/work-stripped-drone.jpg" alt="Drone view of a roof stripped back to the timbers, with two D & P vans on the street below" loading="lazy" width="1031" height="739"></div>
+        <div class="ph swipe"><img src="brand_assets/work-stripped-drone.jpg" alt="Drone view of a roof stripped back to the timbers, with two D & P vans on the street below" loading="lazy" width="1031" height="739"></div>
         <figcaption><b>Stripped back</b><span>Old roof off, back to the timbers, so we can see exactly what we're dealing with.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
-        <div class="ph" data-sc-reveal="up" data-sc-reveal-at="0.34 0.48"><img src="brand_assets/fb-thumbs/valley-retile.jpg" alt="New tiles going on around a valley" loading="lazy" width="414" height="414"></div>
+        <div class="ph swipe"><img src="brand_assets/fb-thumbs/valley-retile.jpg" alt="New tiles going on around a valley" loading="lazy" width="414" height="414"></div>
         <figcaption><b>Felt, batten, tile</b><span>New felt, new battens, new tiles. Valleys and verges done properly.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
-        <div class="ph" data-sc-reveal="right" data-sc-reveal-at="0.5 0.64"><img src="brand_assets/fb-reroof-ridge-2.jpg" alt="New ridge fitted along a red tile roof" loading="lazy" width="1200" height="1600"></div>
+        <div class="ph swipe"><img src="brand_assets/fb-reroof-ridge-2.jpg" alt="New ridge fitted along a red tile roof" loading="lazy" width="1200" height="1600"></div>
         <figcaption><b>Ridge on</b><span>Ridge fitted and finished. Every re-roof comes with a 5 year guarantee.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
-        <div class="ph" data-sc-reveal="up" data-sc-reveal-at="0.66 0.8"><img src="brand_assets/fb-reroof-ridge-3.jpg" alt="Finished red tile roof and ridge in sunshine" loading="lazy" width="1200" height="1600"></div>
+        <div class="ph swipe"><img src="brand_assets/fb-reroof-ridge-3.jpg" alt="Finished red tile roof and ridge in sunshine" loading="lazy" width="1200" height="1600"></div>
         <figcaption><b>Finished</b><span>Site cleared every day, and the price you were quoted.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
     </div>
@@ -667,18 +676,18 @@ a.big:hover{opacity:.85}
     <div class="sc-wrap">
       <h2 data-sc-in>Recent jobs, straight off our Facebook and Instagram.</h2>
       <div class="follow" data-sc-in><a class="soc soc--ig" href="https://www.instagram.com/dandp_roofing_and_buildingltd/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span>Follow on Instagram<small>731 posts of our jobs</small></span></a><a class="soc soc--fb" href="https://www.facebook.com/Dandproofingandbuilding/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg><span>Follow on Facebook<small>887 followers, 100% recommend</small></span></a></div>
-      <div class="work" data-sc-in data-sc-stagger="40">
-        <figure class="tall"><img src="brand_assets/fb-reroof-grey-sky-2.jpg" alt="New tile roof and ridge" loading="lazy"><figcaption>Full re-roof and roofline</figcaption></figure>
-        <figure class="wide"><img src="brand_assets/ig/terrace-reroof-aerial-sep26.jpg" alt="Terrace re-roof seen from the scaffold" loading="lazy"><figcaption>Terrace re-roof, September 2026</figcaption></figure>
-        <figure><img src="brand_assets/ig/ridge-countryside-sep26.jpg" alt="New grey tile ridge with fields behind" loading="lazy"><figcaption>New ridge, September 2026</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/flat-roof-grp-1.jpg" alt="New flat roof" loading="lazy"><figcaption>Flat roof</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/church-scaffold.jpg" alt="Church on scaffold for roof repairs" loading="lazy"><figcaption>Church roof repairs</figcaption></figure>
-        <figure class="tall"><img src="brand_assets/fb-scaffold-detached-1.jpg" alt="Detached house on scaffold" loading="lazy"><figcaption>Scaffold up, detached</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/dormer.jpg" alt="Finished dormer" loading="lazy"><figcaption>Dormer</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/loft-conversion.jpg" alt="Loft conversion with roof windows" loading="lazy"><figcaption>Loft conversion</figcaption></figure>
-        <figure class="wide"><img src="brand_assets/work-extension.jpg" alt="Rear extension with bifold doors" loading="lazy"><figcaption>Rear extension</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/bay-canopy-after.jpg" alt="New bay canopy" loading="lazy"><figcaption>Bay canopy, replaced</figcaption></figure>
-        <figure><img src="brand_assets/fb-thumbs/van.jpg" alt="D & P van on a job" loading="lazy"><figcaption>On the way to yours</figcaption></figure>
+      <div class="work">
+        <figure class="tall swipe"><img src="brand_assets/fb-reroof-grey-sky-2.jpg" alt="New tile roof and ridge" loading="lazy"><figcaption>Full re-roof and roofline</figcaption></figure>
+        <figure class="wide swipe"><img src="brand_assets/ig/terrace-reroof-aerial-sep26.jpg" alt="Terrace re-roof seen from the scaffold" loading="lazy"><figcaption>Terrace re-roof, September 2026</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/ig/ridge-countryside-sep26.jpg" alt="New grey tile ridge with fields behind" loading="lazy"><figcaption>New ridge, September 2026</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/flat-roof-grp-1.jpg" alt="New flat roof" loading="lazy"><figcaption>Flat roof</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/church-scaffold.jpg" alt="Church on scaffold for roof repairs" loading="lazy"><figcaption>Church roof repairs</figcaption></figure>
+        <figure class="tall swipe"><img src="brand_assets/fb-scaffold-detached-1.jpg" alt="Detached house on scaffold" loading="lazy"><figcaption>Scaffold up, detached</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/dormer.jpg" alt="Finished dormer" loading="lazy"><figcaption>Dormer</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/loft-conversion.jpg" alt="Loft conversion with roof windows" loading="lazy"><figcaption>Loft conversion</figcaption></figure>
+        <figure class="wide swipe"><img src="brand_assets/work-extension.jpg" alt="Rear extension with bifold doors" loading="lazy"><figcaption>Rear extension</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/bay-canopy-after.jpg" alt="New bay canopy" loading="lazy"><figcaption>Bay canopy, replaced</figcaption></figure>
+        <figure class="swipe"><img src="brand_assets/fb-thumbs/van.jpg" alt="D & P van on a job" loading="lazy"><figcaption>On the way to yours</figcaption></figure>
       </div>
     </div>
   </section>
@@ -816,6 +825,34 @@ a.big:hover{opacity:.85}
   menu.querySelector(".mnav__close").addEventListener("click", function () { close(true); });
   menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { close(false); }); });
   addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) close(true); });
+})();
+
+// photo swipe-in: alternate sides, fire once per photo when it scrolls into view.
+// Position-based (not IntersectionObserver): a fully clipped element never reports as intersecting.
+(function () {
+  var els = [].slice.call(document.querySelectorAll(".swipe"));
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+  els.forEach(function (e, i) { if (i % 2) e.classList.add("from-right"); });
+  var ticking = false;
+  function check() {
+    ticking = false;
+    var h = innerHeight;
+    els = els.filter(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < h * 0.88 && r.bottom > 0) {
+        var d = el.closest(".work") ? (Array.prototype.indexOf.call(el.parentNode.children, el) % 4) * 90 : 0;
+        setTimeout(function () { el.classList.add("in"); }, d);
+        return false;
+      }
+      return true;
+    });
+    if (!els.length) { removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(check); } }
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  addEventListener("load", check);
+  check();
 })();
 
 // quote form -> WhatsApp, sent only when the visitor presses send
