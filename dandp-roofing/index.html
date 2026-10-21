@@ -213,6 +213,18 @@ a.big:hover{opacity:.85}
 .leak .stain,.leak .drip{grid-area:1/1;align-self:start}
 .leak blockquote p{font-family:var(--sc-font-display);font-weight:700;font-stretch:105%;font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.08;letter-spacing:-.02em;margin:0;color:#E9EEF4}
 .leak cite{display:block;margin-top:var(--sc-5);font-style:normal;font-size:14px;color:var(--sc-ink-soft);letter-spacing:.02em}
+.wcard{display:inline-flex;align-items:center;gap:14px;margin-top:var(--sc-6);padding:12px 18px 12px 12px;max-width:min(34rem,100%);background:#fff;border-radius:16px;color:#111A26;text-decoration:none;text-align:left;
+  box-shadow:0 2px 4px rgba(0,0,0,.25),0 24px 50px -20px rgba(0,0,0,.8);transition:box-shadow .16s var(--sc-ease-out)}
+.wcard img{height:46px;width:auto;flex:none}
+.wcard__txt{display:block;min-width:0}
+.wcard__stars{display:flex;gap:2px;color:#F2B53A;margin-bottom:3px}
+.wcard__stars svg{width:14px;height:14px}
+.wcard b{display:block;font-family:var(--sc-font-display);font-weight:700;font-stretch:105%;font-size:16px;line-height:1.2;letter-spacing:-.01em}
+.wcard small{display:block;font-size:12.5px;color:#4D5868;margin-top:2px}
+.wcard__go{flex:none;display:inline-flex;align-items:center;gap:4px;margin-left:6px;font-size:13px;font-weight:600;color:#0354B4;white-space:nowrap}
+.wcard__go .ext{width:12px;height:12px}
+.wcard:hover{box-shadow:0 2px 4px rgba(0,0,0,.25),0 30px 60px -20px rgba(0,0,0,.9)}
+@media (max-width:620px){.wcard{gap:10px;padding:10px 12px 10px 10px}.wcard img{height:38px}.wcard b{font-size:14.5px}.wcard__go{display:none}}
 .leak .turn p{color:#fff}
 .leak .turn em{font-style:normal;color:var(--blue-soft)}
 .drip{position:absolute;left:50%;top:0;width:10px;height:14px;margin-left:-5px;z-index:2;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
@@ -454,21 +466,21 @@ a.big:hover{opacity:.85}
 </section>
 
 <!-- 2 · RECOGNITION: pin + kinetic, their customers' own words -->
-<section id="leak" class="leak" data-sc-act="pin" data-sc-span="1.9">
+<section id="leak" class="leak" data-sc-act="pin" data-sc-span="2.4">
   <div data-sc-stage>
     <div class="stain" aria-hidden="true"></div>
     <div class="drip" aria-hidden="true"></div>
     <blockquote data-sc-cue="0 0.27 0 0.18">
       <p>"A previous roofer told us they had fixed the issue but the leak returned."</p>
-      <cite>Customer in Greater Manchester, on <a class="wlink" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener">Which?<svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a></cite>
+      <a class="wcard" data-sc-cue="0.03 0.27 0.12 0.18" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="Read the review 'Great Service' and 141 more on Which?, opens in a new tab"><img src="brand_assets/badge-which.png" alt="" width="711" height="562"><span class="wcard__txt"><span class="wcard__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>Great Service</b><small>Customer in Greater Manchester · Which? · May 2026</small></span><span class="wcard__go">Read on Which?<svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></span></a>
     </blockquote>
     <blockquote data-sc-cue="0.27 0.52 0.18 0.18">
       <p>"We had no idea the actual state of the roof."</p>
-      <cite>Customer in Greater Manchester, on <a class="wlink" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener">Which?<svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a></cite>
+      <a class="wcard" data-sc-cue="0.31 0.52 0.12 0.18" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="Read the review 'Realistically, would be a 10 Star Review' and 141 more on Which?, opens in a new tab"><img src="brand_assets/badge-which.png" alt="" width="711" height="562"><span class="wcard__txt"><span class="wcard__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>Realistically, would be a 10 Star Review</b><small>Customer in Greater Manchester · Which? · Jun 2026</small></span><span class="wcard__go">Read on Which?<svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></span></a>
     </blockquote>
     <blockquote data-sc-cue="0.52 0.76 0.18 0.18">
-      <p>"After many hours wasted by 'roofers' letting me down, I was at the end of my tether."</p>
-      <cite>Customer review, on D & P's website</cite>
+      <p>"...he didn't mess me around or lie about the works or what times they would come which unfortunately happens with some workmen (i am one)."</p>
+      <a class="wcard" data-sc-cue="0.56 0.76 0.12 0.18" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="Read the review 'Highly Recommended' and 141 more on Which?, opens in a new tab"><img src="brand_assets/badge-which.png" alt="" width="711" height="562"><span class="wcard__txt"><span class="wcard__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>Highly Recommended</b><small>Customer in Greater Manchester · Which? · Jul 2026</small></span><span class="wcard__go">Read on Which?<svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></span></a>
     </blockquote>
     <blockquote class="turn" data-sc-cue="0.77 1 0.15 0.05">
       <p data-sc-kinetic="lines">Then they called <em>D &amp; P Roofing and Building.</em></p>
