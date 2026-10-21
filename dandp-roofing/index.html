@@ -257,9 +257,20 @@ a.big:hover{opacity:.85}
 .stage figcaption small{font-size:12px;color:#CCDBF1;letter-spacing:.04em}
 @media (max-width:900px){.craft__grid{grid-template-columns:1fr;gap:var(--sc-8)}.craft__head{position:static}}
 
+/* ---------- white divider between the blue sections ---------- */
+.divide{position:relative;z-index:3;height:10px;background:#fff;display:grid;place-items:center;box-shadow:0 -1px 0 rgba(255,255,255,.4),0 10px 30px -18px rgba(0,0,0,.6)}
+.divide::after{content:"";width:72px;height:10px;background:#DE213A}
+
 /* ---------- 5 trust: reviews pan ---------- */
 .trust{background:var(--navy)}
-.trust [data-sc-stage]{display:flex;align-items:center}
+.trust [data-sc-stage]{display:flex;align-items:center;overflow:hidden}
+.trust .rail{position:relative;z-index:1}
+.stars-bg{position:absolute;inset:0;z-index:0;display:flex;align-items:flex-end;justify-content:center;gap:2.4vw;padding-bottom:5vh;pointer-events:none}
+.stars-bg span{width:min(12vw,180px);aspect-ratio:1;flex:none;color:#F2B53A;opacity:calc(.05 + clamp(0, var(--sc-p) * 7 - var(--i) * .9, 1) * .13)}
+.stars-bg svg{width:100%;height:100%;display:block;animation:starfloat 7s ease-in-out infinite;animation-delay:calc(var(--i) * -1.3s)}
+@keyframes starfloat{0%,100%{transform:translate3d(0,0,0) rotate(-4deg) scale(.97)}50%{transform:translate3d(0,-14px,0) rotate(4deg) scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.stars-bg svg{animation:none}.stars-bg span{opacity:.08}}
+@media (max-width:700px){.stars-bg{padding-bottom:14vh;gap:3vw}.stars-bg span{width:15vw}}
 .rail{display:flex;gap:var(--sc-6);padding:0 var(--sc-gutter);align-items:stretch}
 .rail__lead{flex:0 0 min(30rem,82vw);display:flex;flex-direction:column;justify-content:center}
 .rail__lead .big{font-family:var(--sc-font-display);font-weight:800;font-stretch:118%;font-size:clamp(4.5rem,9vw,8rem);line-height:.9;letter-spacing:-.04em;color:#fff}
@@ -466,6 +477,8 @@ a.big:hover{opacity:.85}
   </div>
 </section>
 
+<div class="divide" aria-hidden="true"></div>
+
 <!-- 3 · CONFIDENCE: flow + reveal, the job stage by stage -->
 <section id="craft" class="craft" data-sc-act="flow">
   <div class="sc-wrap craft__grid">
@@ -511,9 +524,12 @@ a.big:hover{opacity:.85}
 </section>
 
 
+<div class="divide" aria-hidden="true"></div>
+
 <!-- 5 · TRUST: pan, 142 reviews -->
 <section id="reviews" class="trust" data-sc-act="pan" data-sc-span="2.6">
   <div data-sc-stage>
+    <div class="stars-bg" aria-hidden="true"><span style="--i:0"><svg><use href="#i-star"/></svg></span><span style="--i:1"><svg><use href="#i-star"/></svg></span><span style="--i:2"><svg><use href="#i-star"/></svg></span><span style="--i:3"><svg><use href="#i-star"/></svg></span><span style="--i:4"><svg><use href="#i-star"/></svg></span></div>
     <div class="rail" data-sc-pan="0.04">
       <div class="rail__lead">
         <a class="big" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="142 reviews on Which?, opens in a new tab">142</a>
