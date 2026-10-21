@@ -137,6 +137,40 @@ a{color:inherit}
 .bar__end{display:flex;gap:10px;align-items:center}
 @media (max-width:620px){.bar .btn--quote,.hide-sm{display:none}.mark img{height:22px}.mark{padding:5px 8px}.bar{gap:8px}.wx{font-size:12px;padding:6px 11px}.bar .btn{min-width:42px;padding:0 12px}}
 
+/* phone menu */
+.burger{display:none;width:44px;height:42px;border-radius:12px;border:0;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);cursor:pointer;place-items:center;align-content:center;gap:5px;padding:0;transition:background-color .16s var(--sc-ease-out),transform .16s var(--sc-ease-out)}
+.burger span{display:block;width:20px;height:2px;border-radius:2px;background:#fff;margin:0 auto}
+.burger:hover{background:rgba(255,255,255,.15)}
+.burger:active{transform:scale(.95)}
+@media (max-width:1080px){.burger{display:grid}}
+@media (max-width:860px){.bar .bar__call{display:none}}
+.mnav{position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;gap:var(--sc-6);padding:18px var(--sc-gutter) calc(24px + env(safe-area-inset-bottom));overflow-y:auto;
+  background:radial-gradient(90% 60% at 100% 0%,rgba(3,84,180,.55),transparent 60%),linear-gradient(180deg,#0A1B3D,#06122A);color:#fff;
+  opacity:0;transform:translate3d(0,-12px,0);transition:opacity .22s var(--sc-ease-out),transform .22s var(--sc-ease-out)}
+.mnav.is-open{opacity:1;transform:none}
+.mnav[hidden]{display:none}
+.mnav__top{display:flex;align-items:center;justify-content:space-between}
+.mnav__top img{height:30px;width:auto;background:#fff;border-radius:10px;padding:6px 10px;box-sizing:content-box}
+.mnav__close{position:relative;width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.1);cursor:pointer;transition:background-color .16s var(--sc-ease-out),transform .16s var(--sc-ease-out)}
+.mnav__close span{position:absolute;left:12px;right:12px;top:21px;height:2px;border-radius:2px;background:#fff}
+.mnav__close span:first-child{transform:rotate(45deg)}
+.mnav__close span:last-child{transform:rotate(-45deg)}
+.mnav__close:hover{background:rgba(255,255,255,.18)}
+.mnav__close:active{transform:scale(.95)}
+.mnav__links{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.14)}
+.mnav__links a{font-family:var(--sc-font-display);font-weight:800;font-stretch:110%;font-size:clamp(1.7rem,7vw,2.3rem);letter-spacing:-.02em;line-height:1.1;color:#fff;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;transition:color .16s var(--sc-ease-out),padding-left .16s var(--sc-ease-out)}
+.mnav__links a::after{content:"";width:10px;height:10px;border-top:2px solid #DE213A;border-right:2px solid #DE213A;transform:rotate(45deg);margin-right:6px}
+.mnav__links a:hover,.mnav__links a:focus-visible{color:#8DB8F0}
+.mnav__links a:active{color:#DE213A}
+.mnav__ctas{display:grid;gap:10px}
+.mnav__ctas .btn{width:100%}
+.mnav__row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mnav__soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.mnav__soc a{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:#fff;text-decoration:none;font-size:14px;font-weight:600;transition:background-color .16s var(--sc-ease-out)}
+.mnav__soc a svg{width:18px;height:18px}
+.mnav__soc a:hover{background:rgba(255,255,255,.16)}
+html.menu-open{overflow:hidden}
+
 /* buttons: one label per intent, "Get a free quote" everywhere */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:12px;font-family:var(--sc-font-text);font-weight:600;font-size:16px;white-space:nowrap;text-decoration:none;
   transition:transform .16s var(--sc-ease-out),background-color .16s var(--sc-ease-out),box-shadow .16s var(--sc-ease-out)}
@@ -438,9 +472,37 @@ a.big:hover{opacity:.85}
   </div>
   <div class="bar__end">
     <a class="btn btn--red btn--quote" href="#quote">Get a free quote</a>
-    <a class="btn btn--ghost" href="tel:+447587415299" aria-label="Call 07587 415299"><svg><use href="#i-phone"/></svg><span class="hide-sm">07587 415299</span></a>
+    <a class="btn btn--ghost bar__call" href="tel:+447587415299" aria-label="Call 07587 415299"><svg><use href="#i-phone"/></svg><span class="hide-sm">07587 415299</span></a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="mnav__top">
+    <img src="brand_assets/logo-dandp-crop.png" alt="D & P Roofing and Building Ltd" width="500" height="76">
+    <button class="mnav__close" type="button" aria-label="Close menu"><span></span><span></span></button>
+  </div>
+  <nav class="mnav__links" aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#craft">How we work</a>
+    <a href="#work">Our work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#areas">Areas</a>
+    <a href="#quote">Contact</a>
+  </nav>
+  <div class="mnav__ctas">
+    <a class="btn btn--red" href="#quote">Get a free quote</a>
+    <div class="mnav__row">
+      <a class="btn btn--ghost" href="tel:+447587415299"><svg><use href="#i-phone"/></svg>Call</a>
+      <a class="btn btn--light" href="https://wa.me/447587415299?text=Hi%20Dale%2C%20I%20found%20you%20online.%20I%27m%20after%20a%20quote%20for%3A%20" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+    </div>
+  </div>
+  <div class="mnav__soc">
+    <a href="https://www.facebook.com/Dandproofingandbuilding/" target="_blank" rel="noopener" aria-label="D & P on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a>
+    <a href="https://www.instagram.com/dandp_roofing_and_buildingltd/" target="_blank" rel="noopener" aria-label="D & P on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+    <a href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="D & P on Which? Trusted Trader"><svg aria-hidden="true"><use href="#i-which"/></svg>Which? 5.0</a>
+  </div>
+</div>
 
 <main>
 
@@ -722,6 +784,27 @@ a.big:hover{opacity:.85}
   var r = el.getBoundingClientRect();
   if (r.top > innerHeight || r.bottom < 0) el.textContent = "0";
   io.observe(el);
+})();
+
+// phone menu: open, close (button, link, Escape), lock the page behind it
+(function () {
+  var menu = document.getElementById("mnav"), btn = document.querySelector(".burger");
+  if (!menu || !btn) return;
+  function open() {
+    menu.hidden = false; document.documentElement.classList.add("menu-open");
+    btn.setAttribute("aria-expanded", "true");
+    requestAnimationFrame(function () { menu.classList.add("is-open"); menu.querySelector(".mnav__links a").focus(); });
+  }
+  function close(back) {
+    menu.classList.remove("is-open"); document.documentElement.classList.remove("menu-open");
+    btn.setAttribute("aria-expanded", "false");
+    setTimeout(function () { menu.hidden = true; }, 220);
+    if (back) btn.focus();
+  }
+  btn.addEventListener("click", open);
+  menu.querySelector(".mnav__close").addEventListener("click", function () { close(true); });
+  menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { close(false); }); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) close(true); });
 })();
 
 // quote form -> WhatsApp, sent only when the visitor presses send
