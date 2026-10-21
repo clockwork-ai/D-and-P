@@ -105,7 +105,7 @@ a{color:inherit}
 .demo{position:relative;z-index:61;background:#05080C;color:#C9D1DA;font-size:13px;text-align:center;padding:7px var(--sc-gutter);line-height:1.4}
 .demo b{color:#fff;font-weight:600}
 
-/* ---------- bar with the forecast readout ---------- */
+/* ---------- bar with the Which? badge ---------- */
 .bar{position:sticky;top:0;z-index:60;height:var(--bar-h);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--sc-gutter);
   background:linear-gradient(to bottom,rgba(8,12,18,.82),rgba(8,12,18,.55));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
 .mark{display:flex;align-items:center;background:#fff;border-radius:10px;padding:6px 10px;box-shadow:0 1px 2px rgba(0,0,0,.3),0 8px 20px -10px rgba(0,0,0,.6);transition:transform .16s var(--sc-ease-out)}
@@ -122,6 +122,17 @@ a{color:inherit}
 .wx:active{transform:scale(.97)}
 .wx[data-k="dry"]{background:#F4C35A;color:#2A1D05;box-shadow:none}
 .bar__mid{display:flex;align-items:center;gap:28px}
+.wbadge{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px 0 6px;border-radius:12px;background:#fff;color:#111A26;text-decoration:none;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(0,0,0,.3),0 8px 20px -10px rgba(0,0,0,.6);transition:transform .16s var(--sc-ease-out),box-shadow .16s var(--sc-ease-out)}
+.wbadge img{height:32px;width:auto;display:block}
+.wbadge__stars{display:inline-flex;gap:1px;color:#F2B53A}
+.wbadge__stars svg{width:13px;height:13px}
+.wbadge b{font-family:var(--sc-font-display);font-weight:800;font-size:16px;letter-spacing:-.01em}
+.wbadge__n{font-size:13px;color:#4D5868}
+.wbadge:hover{transform:translateY(-1px);box-shadow:0 1px 2px rgba(0,0,0,.3),0 12px 26px -10px rgba(0,0,0,.7)}
+.wbadge:active{transform:scale(.97)}
+@media (max-width:620px){.wbadge{gap:5px;padding:0 10px 0 4px;height:38px}.wbadge img{height:28px}.wbadge__stars svg:nth-child(n+2){display:none}.wbadge__n{display:none}.wbadge b{font-size:15px}}
+@media (max-width:360px){.wbadge__stars{display:none}}
 @media (max-width:1080px){.links{display:none}}
 .bar__end{display:flex;gap:10px;align-items:center}
 @media (max-width:620px){.bar .btn--quote,.hide-sm{display:none}.mark img{height:22px}.mark{padding:5px 8px}.bar{gap:8px}.wx{font-size:12px;padding:6px 11px}.bar .btn{min-width:42px;padding:0 12px}}
@@ -380,7 +391,7 @@ a.big:hover{opacity:.85}
 <header class="bar">
   <a class="mark" href="#storm" aria-label="D & P Roofing and Building, back to top"><img src="brand_assets/logo-dandp-crop.png" alt="D & P Roofing and Building Ltd" width="500" height="76"></a>
   <div class="bar__mid">
-    <a class="wx" href="#storm" data-k="storm" aria-live="polite"><svg><use href="#w-heavy"/></svg><span>Storm</span></a>
+    <a class="wbadge" href="https://trustedtraders.which.co.uk/businesses/d-p-roofing-building-ltd/" target="_blank" rel="noopener" aria-label="Rated 5.0 from 142 reviews on Which? Trusted Trader, opens in a new tab"><img src="brand_assets/badge-which.png" alt="" width="711" height="562"><span class="wbadge__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>5.0</b><span class="wbadge__n">142 reviews</span></a>
     <nav class="links" aria-label="Main"><a href="#services">Services</a><a href="#work">Our work</a><a href="#reviews">Reviews</a><a href="#quote">Contact</a></nav>
   </div>
   <div class="bar__end">
@@ -449,8 +460,8 @@ a.big:hover{opacity:.85}
         <figcaption><b>Scaffold up</b><span>Scaffold and skips organised by us, and building control where it's needed.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
-        <div class="ph" data-sc-reveal="left" data-sc-reveal-at="0.18 0.32"><img src="brand_assets/ig/terrace-reroof-aerial-sep26.jpg" alt="Terrace roof stripped back to the timbers" loading="lazy" width="640" height="480"></div>
-        <figcaption><b>Stripped back</b><span>Old roof off, back to the timbers, so we can see exactly what we're dealing with.</span><small>D & P job, September 2026</small></figcaption>
+        <div class="ph" data-sc-reveal="left" data-sc-reveal-at="0.18 0.32"><img src="brand_assets/work-stripped-drone.jpg" alt="Drone view of a roof stripped back to the timbers, with two D & P vans on the street below" loading="lazy" width="1031" height="739"></div>
+        <figcaption><b>Stripped back</b><span>Old roof off, back to the timbers, so we can see exactly what we're dealing with.</span><small>D & P job, Greater Manchester</small></figcaption>
       </figure>
       <figure class="stage">
         <div class="ph" data-sc-reveal="up" data-sc-reveal-at="0.34 0.48"><img src="brand_assets/fb-thumbs/valley-retile.jpg" alt="New tiles going on around a valley" loading="lazy" width="414" height="414"></div>
@@ -629,24 +640,6 @@ a.big:hover{opacity:.85}
 <script src="scrollcraft.js"></script>
 <script>ScrollCraft.mount(document.body);</script>
 <script>
-/* The forecast readout: reports the weather over the roof as the hero clears
-   (Storm, Clearing, Dry) and stays on Dry for the rest of the page. */
-(function () {
-  var wx = document.querySelector(".wx"), hero = document.getElementById("storm");
-  var states = { storm: ["w-heavy", "Storm"], clearing: ["w-clearing", "Clearing"], dry: ["w-dry", "Dry"] }, last = "";
-  function tick() {
-    var p = parseFloat(getComputedStyle(hero).getPropertyValue("--sc-p")) || 0;
-    var past = hero.getBoundingClientRect().bottom < innerHeight * .5;
-    var k = past || p > .5 ? "dry" : p > .2 ? "clearing" : "storm";
-    if (k !== last) {
-      last = k; wx.dataset.k = k;
-      wx.querySelector("use").setAttribute("href", "#" + states[k][0]);
-      wx.querySelector("span").textContent = states[k][1];
-    }
-  }
-  addEventListener("scroll", tick, { passive: true }); addEventListener("load", tick); tick();
-})();
-
 // the Which? review count ticks up to 142 once, when it comes into view
 (function () {
   var el = document.querySelector("#reviews a.big"); if (!el) return;
